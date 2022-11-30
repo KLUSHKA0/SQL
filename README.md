@@ -7,14 +7,12 @@ Select
 **Select** - Получить строки из табицы или представления. <br>
 Команда `Select` Всегда имеет обязательный синтаксис для работы. Стандартный код выглядит так:
 ```SQL
-SELECT [database] # Выводит все таблицы в базе данных `database`
-SELECT [database] FROM [table(s) | alias table(s) ] # Выводит таблицу(ы) `table(s) | alias table(s)` из базы данных `database` 
+SELECT [column] FROM [table(s) | alias table(s) ] # Выводит таблицу(ы) `table(s) | alias table(s)` c столбцами `column`
 ```
 Примеры: 
 ```SQL
-SELECT library # Выводит все таблицы из базы данных `library`
-SELECT * FROM messages # Выводит таблицу `messages` сради всех баз данных
-SELECT library FROM history # Выводит таблицу `history` из базы данных `library`
+SELECT * FROM messages # Выводит таблицу `messages` со всеми столбцами
+SELECT id, century FROM history # Выводит таблицу `history` со столбцами `id` и `century`
 ```
 Предложение WHERE
 ---
@@ -26,7 +24,7 @@ WHERE условие
 <br>
 Пример:
 ```SQL
-SELECT library FROM history WHERE year=1812 # Выводит данные из таблицы `history` из базы данных `library` только те, в которых в столбце `year` данные будут равны `1812` 
+SELECT id, year, century FROM history WHERE century=19 # Выводит данные из таблицы `history` со столбцами `id`, `year`, `century`, но только те, у которых century=18
 ```
 
 предложение ORDER BY
@@ -43,5 +41,5 @@ DESC - сортирует от большего к меньшему
 <br>
 Пример:
 ```SQL
-SELECT library FROM history ORDER BY year ASC # Выводит данные из таблицы `history` из базы данных `library`, которые отсуртируемые от меньшего к большему по столбцу `year`
+SELECT * FROM history ORDER BY year ASC # Выводит данные из таблицы `history` со всеми столбцами, которые отсуртируемые от меньшего к большему по столбцу `year`
 ```
